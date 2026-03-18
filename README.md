@@ -27,16 +27,8 @@ This application provides role-based access for Admin and Employees with a dashb
 ---
 
 ## 📂 Project Structure
-src/
-├── components/
-│ ├── Auth/
-│ ├── Dashboard/
-│ ├── TaskList/
-│ ├── other/
-├── context/
-├── utils/
-├── App.jsx
-├── main.jsx
+<img width="415" height="529" alt="image" src="https://github.com/user-attachments/assets/159d789d-cde6-4d9f-af25-f9fcc230f130" />
+
 
 
 ---
