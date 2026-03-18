@@ -1,21 +1,29 @@
 import React from 'react'
+import AcceptTask from './AcceptTask'
+import NewTask from './NewTask'
+import CompleteTask from './CompleteTask'
+import FailedTask from './FailedTask'
 
-const NewTask = ({data}) => {
-    return (
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-green-400 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>{data.category}</h3>
-                <h4 className='text-sm'>{data.taskDate}</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>{data.taskTitle}</h2>
-            <p className='text-sm mt-2'>
-                {data.taskDescription}
-            </p>
-            <div className='mt-6'>
-                <button className='bg-blue-500 rounded font-medium py-1 px-2 text-xs'>Accept Task</button>
-            </div>
-        </div>
-    )
+const TaskList = ({ data }) => {
+  return (
+    <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+      {data.tasks.map((elem, idx) => {
+        if (elem.active) {
+          return <AcceptTask key={idx} data={elem} />
+        }
+        if (elem.newTask) {
+          return <NewTask key={idx} data={elem} />
+        }
+        if (elem.completed) {
+          return <CompleteTask key={idx} data={elem} />
+        }
+        if (elem.failed) {
+          return <FailedTask key={idx} data={elem} />
+        }
+        return null
+      })}
+    </div>
+  )
 }
 
-export default NewTask
+export default TaskList
