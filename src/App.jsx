@@ -20,27 +20,27 @@ const App = () => {
     }
   }, [])
 
-  const handleLogin = (email, password) => {
-    if (email === 'admin@me.com' && password === '123') {
-      setUser('admin')
-      localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
-    } else if (employees) {
-      const employee = employees.find(
-        (e) => email === e.email && password === e.password
-      )
+const handleLogin = (email, password) => {
+  if (email === 'admin@company.com' && password === '123') {
+    setUser('admin')
+    localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
+  } else if (employees) {
+    const employee = employees.find(
+      (e) => email === e.email && password === e.password
+    )
 
-      if (employee) {
-        setUser('employee')
-        setLoggedInUserData(employee)
-        localStorage.setItem(
-          'loggedInUser',
-          JSON.stringify({ role: 'employee', data: employee })
-        )
-      } else {
-        alert("Invalid Credentials")
-      }
+    if (employee) {
+      setUser('employee')
+      setLoggedInUserData(employee)
+      localStorage.setItem(
+        'loggedInUser',
+        JSON.stringify({ role: 'employee', data: employee })
+      )
+    } else {
+      alert("Invalid Credentials")
     }
   }
+}
 
   return (
     <>
